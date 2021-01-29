@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
-* Студент: [Татьяна Комарова](https://up.htmlacademy.ru/javascript/22/user/1674535).
-* Наставник: `Неизвестно`.
+- Студент: [Татьяна Комарова](https://up.htmlacademy.ru/javascript/22/user/1674535).
+- Наставник: [Павел Нюкало](https://htmlacademy.ru/profile/nyukalopavel).
 
 ---
 
