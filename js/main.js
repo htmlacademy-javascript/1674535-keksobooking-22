@@ -1,6 +1,6 @@
 const getRandomInteger = (min, max) => {
-  if (typeof min === 'number' || typeof max === 'number' || min > max || min < 0){
-    alert('Задайте корректный диапазон');
+  if (typeof min != 'number' || !typeof max != 'number' || min > max || min < 0){
+    alert('Задайте корректный диапазон. Границы не могут быть отрицательными. Нижняя граница должна быть меньше или равна верхней');
     return undefined;
   }
 
@@ -15,7 +15,7 @@ const getRandomInteger = (min, max) => {
 }
 
 const getRandomFloat = (min, max, n) => {
-  if (typeof min === 'number' || typeof max === 'number' || typeof n === 'number' || min > max || min < 0){
+  if (typeof min != 'number' || typeof max != 'number' || typeof n != 'number' || min > max || min < 0){
     alert('Задайте корректный диапазон. Границы не могут быть отрицательными. Нижняя граница должна быть меньше или равна верхней');
     return undefined;
   }
