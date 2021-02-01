@@ -23,7 +23,10 @@ const getRandomFloat = (min, max, n) => {
   if (min == max){
     return min;
   }
-  
+
   return (Math.random() * (max - min) + min).toFixed(n);
 }
+
+getRandomInteger(2, 10);
+getRandomFloat(2.1,10.8, 2);
 
