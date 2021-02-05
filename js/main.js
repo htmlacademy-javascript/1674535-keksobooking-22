@@ -91,11 +91,11 @@ const getRandomLengthForArray = (length) => {
 
 const createRandomArray = (elements) => {
   const newArrayLength = getRandomLengthForArray(elements.length);
+  let tempArray = [];
   if (newArrayLength === 0){
-    return null;
+    return tempArray;
   }
 
-  let tempArray = new Array();
   tempArray[0] = getRandomInteger(0, elements.length - 1);
   if (newArrayLength !==1 ){
     for (let i = 1; i < newArrayLength; i++){
