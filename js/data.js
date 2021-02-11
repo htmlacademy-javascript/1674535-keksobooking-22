@@ -1,5 +1,4 @@
 import {getRandomInteger, getRandomFloat} from './util.js';
-export {createNearestPlaces};
 
 const OBJECTS_COUNT = 10;
 const TITLE_TEXT = 'Мега-выгодное предложение!';
