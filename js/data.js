@@ -1,4 +1,5 @@
 import {getRandomInteger, getRandomFloat} from './util.js';
+export {createNearestPlaces};
 
 const OBJECTS_COUNT = 10;
 const TITLE_TEXT = 'Мега-выгодное предложение!';
@@ -95,8 +96,8 @@ const createOffer = (newLocation) => {
     address: newLocation.x + ', ' + newLocation.y,
     price: getRandomInteger(MIN_PRICE, MAX_PRICE),
     type: getRandomArrayElement(OBJECT_TYPES),
-    rooms: getRandomInteger(0, MAX_ROOMS_COUNT),
-    guests: getRandomInteger(0, MAX_GUESTS_COUNT),
+    rooms: getRandomInteger(1, MAX_ROOMS_COUNT),
+    guests: getRandomInteger(1, MAX_GUESTS_COUNT),
     checkin: getRandomArrayElement(CHECK_TIMES),
     checkout: getRandomArrayElement(CHECK_TIMES),
     features: createRandomArray(FEATURES),
@@ -118,4 +119,4 @@ const createNearestPlaces = () => {
   return new Array(OBJECTS_COUNT).fill(null).map(() => createNearestPlace());
 };
 
-createNearestPlaces();
+//createNearestPlaces();
