@@ -65,7 +65,7 @@ nearestPlaces.forEach((nearestPlace) => {
       const featureClassList = feature.classList;
       const featureClass = featureClassList[1];
       const featureType = featureClass.substring(featureClass.indexOf('--')+2);
-      if (nearestPlace.offer.features===undefined || !nearestPlace.offer.features.includes(featureType)){
+      if (!nearestPlace.offer.features.includes(featureType)){
         featureClassList.add('hidden');
       }
     });
@@ -74,13 +74,13 @@ nearestPlaces.forEach((nearestPlace) => {
   (nearestPlace.offer.description===undefined) ? cardElement.querySelector('.popup__description').classList.add('hidden') : cardElement.querySelector('.popup__description').textContent = nearestPlace.offer.description;
 
   const photosList = cardElement.querySelector('.popup__photos');
-  if (nearestPlace.offer.photos === undefined){
+  if (nearestPlace.offer.photos === undefined ){
     photosList.classList.add('hidden');
   }
   else{
     const photosCount = nearestPlace.offer.photos.length;
     if (photosCount===0){
-      cardElement.querySelector('.popup__photo').classList.add('hidden');
+      photosList.classList.add('hidden');
     }
     else{
       cardElement.querySelector('.popup__photo').src = nearestPlace.offer.photos[0];
