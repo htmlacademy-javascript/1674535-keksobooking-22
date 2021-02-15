@@ -1,4 +1,4 @@
-import './popup.js';
+import './card.js'
 
 
 
