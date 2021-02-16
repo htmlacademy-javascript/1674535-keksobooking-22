@@ -8,6 +8,7 @@ const offerTypeLabels = {
 }
 
 const roomCountLabels = new Map([
+  [0, 'комнат'],
   [1, 'комната'],
   [2, 'комнаты'],
   [3, 'комнаты'],
