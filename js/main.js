@@ -1,4 +1,5 @@
-import './card.js'
+import './card.js';
+import './form.js';
 
 
 
