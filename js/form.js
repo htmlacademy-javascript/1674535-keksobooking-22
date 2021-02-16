@@ -7,16 +7,16 @@ const minPrices = {
   palace: 10000,
 }
 
-const type = document.querySelector('#type');
+const typeHousing = document.querySelector('#type');
 const timein = document.querySelector('#timein');
 const timeout = document.querySelector('#timeout');
 
-type.addEventListener('change', () => {
-  const selectedOptionValue = type.options[type.selectedIndex].value;
+typeHousing.addEventListener('change', () => {
+  const selectedValue = typeHousing.value;
   const price = document.querySelector('#price');
   price.setAttribute('max', MAX_PRICE);
-  price.setAttribute('min', minPrices[selectedOptionValue]);
-  price.setAttribute('placeholder', minPrices[selectedOptionValue]);
+  price.setAttribute('min', minPrices[selectedValue]);
+  price.setAttribute('placeholder', minPrices[selectedValue]);
 });
 
 timein.addEventListener('change', () => {
