@@ -82,7 +82,6 @@ const createAutor = () => {
   };
 }
 
-
 const createLocation = () => {
   return{
     x: getRandomFloat(MIN_X, MAX_X, NUMBER_OF_DECIMAL_X_Y),
@@ -119,4 +118,4 @@ const createNearestPlaces = () => {
   return new Array(OBJECTS_COUNT).fill(null).map(() => createNearestPlace());
 };
 
-//createNearestPlaces();
+
