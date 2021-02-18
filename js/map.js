@@ -1,6 +1,7 @@
 /* global L:readonly */
 import {createNearestPlaces} from './data.js';
 import {createCard} from './card.js';
+import {setActivePage} from './settings.js';
 
 const CENTER_LATITUDE = 35.68170;
 const CENTER_LONGITUDE = 139.75388;
@@ -22,17 +23,6 @@ const iconParameters = {
 }
 
 const address = document.querySelector('#address');
-
-const setActivePage = () => {
-  const form = document.querySelector('.ad-form');
-  form.classList.remove('ad-form--disabled');
-  const filter = document.querySelector('.map__filters');
-  filter.classList.remove('map__filters--disabled');
-  const disabledFields = document.querySelectorAll('fieldset[disabled], select[disabled]');
-  disabledFields.forEach(element => {
-    element.disabled=false;
-  });
-}
 
 const map = L.map('map-canvas')
   .on('load', () => {
