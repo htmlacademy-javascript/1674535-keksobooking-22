@@ -1,4 +1,4 @@
-import {createNearestPlaces} from './data.js';
+export {createCard};
 
 const offerTypeLabels = {
   flat: 'Квартира',
@@ -20,10 +20,8 @@ const roomCountLabels = new Map([
   [9, 'комнат'],
 ]);
 
-const similarCardElement = document.querySelector('.map__canvas');
 const similarCardTemplate = document.querySelector('#card').content.querySelector('.popup');
-const similarCardFragment = document.createDocumentFragment();
-const nearestPlaces = createNearestPlaces();
+const similarCardFragment = document.createDocumentFragment()
 
 const fillSimpleField = (field, element, textContent) => {
   (field === undefined) ? element.classList.add('hidden') : element.textContent = textContent;
@@ -73,7 +71,7 @@ const fillPhotos = (element, array) => {
     element.classList.add('hidden');
   } else {
     element.innerHTML = '';
-    array.forEach(function (item) {
+    array.forEach((item) => {
       const addPhoto = imgTemplate.cloneNode(true);
       addPhoto.src = item;
       element.appendChild(addPhoto);
@@ -85,8 +83,9 @@ const fillAvatar = (field, element, imagePath) => {
   (field === undefined) ? element.classList.add('hidden') : element.src = imagePath;
 };
 
-nearestPlaces.forEach((nearestPlace) => {
+const createCard = (nearestPlace) => {
   const cardElement = similarCardTemplate.cloneNode(true);
+  fillSimpleField (nearestPlace.offer.title, cardElement.querySelector('.popup__title'), nearestPlace.offer.title);
   fillSimpleField (nearestPlace.offer.address, cardElement.querySelector('.popup__text--address'), nearestPlace.offer.address);
   fillSimpleField (nearestPlace.offer.price, cardElement.querySelector('.popup__text--price'), `${nearestPlace.offer.price} ₽/ночь`);
   fillSimpleField (nearestPlace.offer.type, cardElement.querySelector('.popup__type'), offerTypeLabels[nearestPlace.offer.type]);
@@ -96,7 +95,6 @@ nearestPlaces.forEach((nearestPlace) => {
   fillFeatures(cardElement.querySelector('.popup__features'), nearestPlace.offer.features);
   fillPhotos(cardElement.querySelector('.popup__photos'), nearestPlace.offer.photos);
   fillAvatar (nearestPlace.author.avatar, cardElement.querySelector('.popup__avatar'), nearestPlace.author.avatar);
-  similarCardFragment.appendChild(cardElement);
-});
+  return similarCardFragment.appendChild(cardElement);
+};
 
-similarCardElement.appendChild(similarCardFragment.firstChild);
