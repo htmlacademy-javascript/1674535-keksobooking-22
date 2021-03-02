@@ -2,6 +2,11 @@
 import {createNearestPlaces} from './data.js';
 import {createCard} from './card.js';
 import {setActivePage} from './settings.js';
+import {createFetch} from './create-fetch.js';
+
+
+
+
 
 const CENTER_LATITUDE = 35.68170;
 const CENTER_LONGITUDE = 139.75388;
@@ -69,7 +74,9 @@ mainMarker.addTo(map)
     address.value = `${coordinates.lat.toFixed(5)}, ${coordinates.lng.toFixed(5)}`;
   });
 
-const points = createNearestPlaces();
+//const points = createNearestPlaces(); //вместо этого
+
+const points = createFetch();
 
 points.forEach((point) => {
   const marker = L.marker(
