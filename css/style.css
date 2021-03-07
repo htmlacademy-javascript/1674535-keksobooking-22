@@ -1026,3 +1026,8 @@ fieldset {
 .hidden {
   display: none;
 }
+
+option:disabled {
+  opacity: 0.5;
+  background-color: #f0f0ea;
+}

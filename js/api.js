@@ -8,7 +8,7 @@ const getData = (onSuccess) => {
 
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://22.javascript.pages.academy/keksobooking/data',
+    'https://22.javascript.pages.academy/keksobooking',
     {
       method: 'POST',
       body,
@@ -16,13 +16,15 @@ const sendData = (onSuccess, onFail, body) => {
   )
     .then((response) => {
       if (response.ok) {
+        console.log('попали в успех');
         onSuccess();
       } else {
-        onFail('Упс... Не удалось отправить форму. Попробуйте ещё раз');
+        console.log('попали в НЕуспех');
+        onFail();
       }
     })
     .catch(() => {
-      onFail('Упс...Не удалось отправить форму. Попробуйте ещё раз');
+      onFail();
     });
 };
 

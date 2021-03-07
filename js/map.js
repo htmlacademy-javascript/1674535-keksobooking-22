@@ -1,7 +1,8 @@
 /* global L:readonly */
 import {createCard} from './card.js';
 import {setActivePage} from './settings.js';
-export {createPoints};
+export {createPoints, resetMap};
+
 
 const CENTER_LATITUDE = 35.68170;
 const CENTER_LONGITUDE = 139.75388;
@@ -89,6 +90,11 @@ const createPoints = (points) => {
         });
   });
 };
+
+const resetMap = () =>{
+  mainMarker.setLatLng([CENTER_LATITUDE,CENTER_LONGITUDE]).update();
+  address.value = `${CENTER_LATITUDE}, ${CENTER_LONGITUDE}`;
+}
 
 
 
