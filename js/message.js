@@ -38,10 +38,10 @@ const closeSuccessMessage = () => {
 };
 
 const closeErrorMessage = () => {
-  const errorContent = document.querySelector('.error')
+  const errorContent = document.querySelector('.error');
+  const errorButton = document.querySelector('.error__button');
   document.removeEventListener('keydown', onErrorMessageEscKeydown);
   window.removeEventListener('click', onErrorMessageWindowClick);
-  const errorButton = document.querySelector('.error__button');
   errorButton.removeEventListener('click', onErrorButtonClick);
   errorContent.remove();
 };
@@ -54,7 +54,7 @@ const showSuccessMessage = () => {
   document.addEventListener('keydown', onSuccessMessageEscKeydown);
   window.addEventListener('click', onSuccessMessageWindowClick);
 
-}
+};
 
 const showErrorMessage = () => {
   const main = document.querySelector('main');
@@ -65,11 +65,5 @@ const showErrorMessage = () => {
   document.addEventListener('keydown', onErrorMessageEscKeydown);
   window.addEventListener('click', onErrorMessageWindowClick);
   errorButton.addEventListener('click', onErrorButtonClick);
-}
+};
 
-
-
-
-
-//showSuccessMessage();
-//showErrorMessage();
