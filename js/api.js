@@ -1,8 +1,14 @@
+export {getData, sendData};
+import {showAlert} from './util.js';
+
 const getData = (onSuccess) => {
   fetch('https://22.javascript.pages.academy/keksobooking/data')
     .then((response) => response.json())
     .then((points) => {
       onSuccess(points);
+    })
+    .catch(() => {
+      showAlert('При загрузке данных произошла ошибка');
     });
 };
 
@@ -16,10 +22,8 @@ const sendData = (onSuccess, onFail, body) => {
   )
     .then((response) => {
       if (response.ok) {
-        console.log('попали в успех');
         onSuccess();
       } else {
-        console.log('попали в НЕуспех');
         onFail();
       }
     })
@@ -27,11 +31,3 @@ const sendData = (onSuccess, onFail, body) => {
       onFail();
     });
 };
-
-export {getData, sendData};
-
-
-
-
-
-

@@ -1,4 +1,3 @@
-import {showAlert} from './util.js';
 import {sendData} from './api.js';
 import {resetMap} from './map.js';
 import {defaultForm} from './settings.js';

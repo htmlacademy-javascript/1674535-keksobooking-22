@@ -425,3 +425,7 @@ td,
 th {
   padding: 0;
 }
+
+.map__canvas{
+  z-index: 0;
+}

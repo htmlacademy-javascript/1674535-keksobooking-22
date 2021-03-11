@@ -1,8 +1,5 @@
 export {setDisabledPage, setActivePage, defaultForm};
 
-
-
-
 const setDisabledPage = () => {
   const form = document.querySelector('.ad-form');
   const filter = document.querySelector('.map__filters');
@@ -23,6 +20,7 @@ const setActivePage = () => {
   disabledFields.forEach(element => {
     element.disabled=false;
   });
+
 }
 
 const defaultForm = new Object();

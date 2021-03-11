@@ -93,7 +93,6 @@ const createPoints = (points) => {
 
 const resetMap = () =>{
   mainMarker.setLatLng([CENTER_LATITUDE,CENTER_LONGITUDE]).update();
-  address.value = `${CENTER_LATITUDE}, ${CENTER_LONGITUDE}`;
 }
 
 
