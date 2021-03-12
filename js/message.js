@@ -31,7 +31,7 @@ const onErrorButtonClick = (evt) => {
 };
 
 const closeSuccessMessage = () => {
-  const successContent = document.querySelector('.success')
+  const successContent = document.querySelector('.success');
   document.removeEventListener('keydown', onSuccessMessageEscKeydown);
   window.removeEventListener('click', onSuccessMessageWindowClick);
   successContent.remove();

@@ -1031,3 +1031,7 @@ option:disabled {
   opacity: 0.5;
   background-color: #f0f0ea;
 }
+
+.map__canvas{
+  z-index: 0;
+}
