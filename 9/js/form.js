@@ -8,8 +8,6 @@ const titleRange = {
   max: 100,
 }
 
-const MAX_PRICE = 1000000;
-
 const minPrices = {
   bungalow: 0,
   flat: 1000,
@@ -27,8 +25,6 @@ const roomNumber = document.querySelector('#room_number');
 const capacity = document.querySelector('#capacity');
 const description = document.querySelector('#description');
 const adFormResetBtn = document.querySelector('.ad-form__reset');
-
-price.setAttribute('max', MAX_PRICE); //или максимум прописать в атрибуты сразу???
 
 typeHousing.addEventListener('change', () => {
   const selectedValue = typeHousing.value;
@@ -68,12 +64,12 @@ roomNumber.addEventListener('change', () => {
   const capacities = Array.from(capacity.children);
   switch (selectedRoomNumber){
     case '1':
-      capacities.forEach(e => {
-        if (e.value != 1){
-          e.setAttribute('disabled',true);
+      capacities.forEach(element => {
+        if (element.value != 1){
+          element.setAttribute('disabled',true);
         }
         else{
-          e.removeAttribute('disabled');
+          element.removeAttribute('disabled');
         }
       });
       if (selectedCapacity!=1){
@@ -85,12 +81,12 @@ roomNumber.addEventListener('change', () => {
       capacity.reportValidity();
       break;
     case '2':
-      capacities.forEach(e => {
-        if (e.value != 1 && e.value != 2){
-          e.setAttribute('disabled',true);
+      capacities.forEach(element => {
+        if (element.value != 1 && element.value != 2){
+          element.setAttribute('disabled',true);
         }
         else{
-          e.removeAttribute('disabled');
+          element.removeAttribute('disabled');
         }
       });
       if (selectedCapacity!=1 && selectedCapacity!=2){
@@ -102,12 +98,12 @@ roomNumber.addEventListener('change', () => {
       capacity.reportValidity();
       break;
     case '3':
-      capacities.forEach(e => {
-        if (e.value != 1 && e.value != 2 && e.value != 3){
-          e.setAttribute('disabled',true);
+      capacities.forEach(element => {
+        if (element.value != 1 && element.value != 2 && element.value != 3){
+          element.setAttribute('disabled',true);
         }
         else{
-          e.removeAttribute('disabled');
+          element.removeAttribute('disabled');
         }
       });
       if (selectedCapacity != 1 && selectedCapacity != 2 && selectedCapacity != 3){
@@ -119,12 +115,12 @@ roomNumber.addEventListener('change', () => {
       capacity.reportValidity();
       break;
     case '100':
-      capacities.forEach(e => {
-        if (e.value != 0){
-          e.setAttribute('disabled', true);
+      capacities.forEach(element => {
+        if (element.value != 0){
+          element.setAttribute('disabled', true);
         }
         else{
-          e.removeAttribute('disabled');
+          element.removeAttribute('disabled');
         }
       });
       if (selectedCapacity != 0){
