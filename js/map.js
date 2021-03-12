@@ -1,7 +1,8 @@
 /* global L:readonly */
-import {createNearestPlaces} from './data.js';
 import {createCard} from './card.js';
 import {setActivePage} from './settings.js';
+export {createPoints, resetMap};
+
 
 const CENTER_LATITUDE = 35.68170;
 const CENTER_LONGITUDE = 139.75388;
@@ -69,22 +70,32 @@ mainMarker.addTo(map)
     address.value = `${coordinates.lat.toFixed(5)}, ${coordinates.lng.toFixed(5)}`;
   });
 
-const points = createNearestPlaces();
-
-points.forEach((point) => {
-  const marker = L.marker(
-    {
-      lat: point.location.x,
-      lng: point.location.y,
-    },
-    {
-      icon,
-    },
-  );
-  const title = createCard(point);
-  marker.addTo(map)
-    .bindPopup(title,
+const createPoints = (points) => {
+  points.forEach((point) => {
+    const marker = L.marker(
       {
-        keepInView: true,
-      });
-});
+        lat: point.location.lat,
+        lng: point.location.lng,
+      },
+      {
+        icon,
+      },
+    );
+
+    const title = createCard(point);
+    marker.addTo(map)
+      .bindPopup(title,
+        {
+          keepInView: true,
+        });
+  });
+};
+
+const resetMap = () =>{
+  mainMarker.setLatLng([CENTER_LATITUDE,CENTER_LONGITUDE]).update();
+}
+
+
+
+
+

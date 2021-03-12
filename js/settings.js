@@ -1,5 +1,4 @@
-export {setDisabledPage};
-export {setActivePage};
+export {setDisabledPage, setActivePage, defaultForm};
 
 const setDisabledPage = () => {
   const form = document.querySelector('.ad-form');
@@ -21,5 +20,26 @@ const setActivePage = () => {
   disabledFields.forEach(element => {
     element.disabled=false;
   });
+
 }
+
+const defaultForm = new Object();
+
+const saveDefaultForm = () => {
+  defaultForm.avatar =document.querySelector('#avatar-photo').getAttribute('src');
+  defaultForm.title = document.querySelector('#title').value;
+  defaultForm.typeHousing = document.querySelector('#type').value;
+  defaultForm.price = document.querySelector('#price').value;
+  defaultForm.pricePlaceHolder =document.querySelector('#price').getAttribute('placeholder');
+  defaultForm.timein = document.querySelector('#timein').value;
+  defaultForm.timeout = document.querySelector('#timeout').value;
+  defaultForm.roomNumber = document.querySelector('#room_number').value;
+  defaultForm.capacity = document.querySelector('#capacity').value;
+  defaultForm.description = document.querySelector('#description').value;
+}
+
 setDisabledPage();
+saveDefaultForm();
+
+
+
