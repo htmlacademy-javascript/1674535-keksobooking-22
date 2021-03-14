@@ -1,7 +1,8 @@
 /* global L:readonly */
 import {createCard} from './card.js';
 import {setActivePage} from './settings.js';
-export {createPoints, resetMap};
+import {filter} from './filter.js';
+export {createPoints, resetMap, updatePoints};
 
 
 const CENTER_LATITUDE = 35.68170;
@@ -70,6 +71,7 @@ mainMarker.addTo(map)
     address.value = `${coordinates.lat.toFixed(5)}, ${coordinates.lng.toFixed(5)}`;
   });
 
+const markers = L.layerGroup().addTo(map);
 const createPoints = (points) => {
   points.forEach((point) => {
     const marker = L.marker(
@@ -83,7 +85,7 @@ const createPoints = (points) => {
     );
 
     const title = createCard(point);
-    marker.addTo(map)
+    marker.addTo(markers)
       .bindPopup(title,
         {
           keepInView: true,
@@ -94,6 +96,16 @@ const createPoints = (points) => {
 const resetMap = () =>{
   mainMarker.setLatLng([CENTER_LATITUDE,CENTER_LONGITUDE]).update();
 }
+
+const resetMarkers = () => {
+  markers.clearLayers();
+}
+
+const updatePoints = (points) => {
+  resetMarkers();
+  const filteredPoints = filter(points);
+  createPoints(filteredPoints);
+};
 
 
 
