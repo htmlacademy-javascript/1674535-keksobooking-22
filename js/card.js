@@ -74,6 +74,7 @@ const fillPhotos = (element, array) => {
     array.forEach((item) => {
       const addPhoto = imgTemplate.cloneNode(true);
       addPhoto.src = item;
+      
       element.appendChild(addPhoto);
     });
   }

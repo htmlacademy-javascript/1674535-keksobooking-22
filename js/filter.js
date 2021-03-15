@@ -61,29 +61,10 @@ const filter = (points) => {
     filteredPoints = filteredPoints.filter((point) => point.offer.guests.toString() === housingGuests.value);
   }
 
-  if (wifi.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(wifi.value) != -1);
-  }
-
-  if (dishwasher.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(dishwasher.value) != -1);
-  }
-
-  if (parking.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(parking.value) != -1);
-  }
-
-  if (washer.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(washer.value) != -1);
-  }
-
-  if (elevator.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(elevator.value) != -1);
-  }
-
-  if (conditioner.checked) {
-    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(conditioner.value) != -1);
-  }
+  const checkedFeatures = document.querySelectorAll('.map__features input:checked');
+  checkedFeatures.forEach(element => {
+    filteredPoints = filteredPoints.filter((point) => point.offer.features.indexOf(element.value) !== -1);
+  });
 
   return filteredPoints.slice(0, POINTS_COUNT);
 };

@@ -3,6 +3,8 @@ import {resetMap} from './map.js';
 import {defaultForm} from './settings.js';
 export {setUserFormSubmit, resetForm};
 
+const ROOM_NUNBER_ERROR_TEXT = 'Недопустимое кол-во гостей для выбранного кол-ва комнат';
+
 const titleRange = {
   min: 30,
   max: 100,
@@ -29,8 +31,8 @@ const adFormResetBtn = document.querySelector('.ad-form__reset');
 typeHousing.addEventListener('change', () => {
   const selectedValue = typeHousing.value;
   const minPrice = minPrices[selectedValue];
-  price.setAttribute('min', minPrice);
-  price.setAttribute('placeholder', minPrice);
+  price.min = minPrice;
+  price.placeholder = minPrice;
   checkPrice(price, minPrice);
 });
 
@@ -62,76 +64,35 @@ roomNumber.addEventListener('change', () => {
   const selectedRoomNumber = roomNumber.value;
   const selectedCapacity = capacity.value;
   const capacities = Array.from(capacity.children);
+  capacity.setCustomValidity('');
   switch (selectedRoomNumber){
     case '1':
       capacities.forEach(element => {
-        if (element.value != 1){
-          element.setAttribute('disabled',true);
-        }
-        else{
-          element.removeAttribute('disabled');
-        }
+        (element.value != 1) ? element.disabled = true : element.disabled = false;
       });
-      if (selectedCapacity!=1){
-        capacity.setCustomValidity('Недопустимое кол-во гостей для выбранного кол-ва комнат');
-      }
-      else{
-        capacity.setCustomValidity('');
-      }
-      capacity.reportValidity();
+      (selectedCapacity!=1) ? capacity.setCustomValidity(ROOM_NUNBER_ERROR_TEXT) : capacity.setCustomValidity('');
       break;
     case '2':
       capacities.forEach(element => {
-        if (element.value != 1 && element.value != 2){
-          element.setAttribute('disabled',true);
-        }
-        else{
-          element.removeAttribute('disabled');
-        }
+        (element.value != 1 && element.value != 2) ? element.disabled = true : element.disabled = false;
       });
-      if (selectedCapacity!=1 && selectedCapacity!=2){
-        capacity.setCustomValidity('Недопустимое кол-во гостей для выбранного кол-ва комнат');
-      }
-      else{
-        capacity.setCustomValidity('');
-      }
-      capacity.reportValidity();
+      (selectedCapacity!=1 && selectedCapacity!=2) ? capacity.setCustomValidity(ROOM_NUNBER_ERROR_TEXT) : capacity.setCustomValidity('');
       break;
     case '3':
       capacities.forEach(element => {
-        if (element.value != 1 && element.value != 2 && element.value != 3){
-          element.setAttribute('disabled',true);
-        }
-        else{
-          element.removeAttribute('disabled');
-        }
+        (element.value != 1 && element.value != 2 && element.value != 3) ? element.disabled = true : element.disabled = false;
       });
-      if (selectedCapacity != 1 && selectedCapacity != 2 && selectedCapacity != 3){
-        capacity.setCustomValidity('Недопустимое кол-во гостей для выбранного кол-ва комнат');
-      }
-      else{
-        capacity.setCustomValidity('');
-      }
-      capacity.reportValidity();
+      (selectedCapacity != 1 && selectedCapacity != 2 && selectedCapacity != 3) ? capacity.setCustomValidity(ROOM_NUNBER_ERROR_TEXT) : capacity.setCustomValidity('');
       break;
     case '100':
       capacities.forEach(element => {
-        if (element.value != 0){
-          element.setAttribute('disabled', true);
-        }
-        else{
-          element.removeAttribute('disabled');
-        }
+        (element.value != 0) ? element.disabled = true : element.disabled = false;
       });
-      if (selectedCapacity != 0){
-        capacity.setCustomValidity('Недопустимое кол-во гостей для выбранного кол-ва комнат');
-      }
-      else{
-        capacity.setCustomValidity('');
-      }
-      capacity.reportValidity();
+      (selectedCapacity != 0) ? capacity.setCustomValidity(ROOM_NUNBER_ERROR_TEXT) : capacity.setCustomValidity('');
       break;
   }
+  capacity.reportValidity();
+
 });
 
 title.addEventListener('input', () => {
@@ -159,11 +120,11 @@ const setUserFormSubmit = (onSuccess, onError) => {
 
 const resetForm = () => {
   const photo = document.querySelector('.ad-form__photo');
-  avatar.setAttribute('src', defaultForm.avatar);
+  avatar.src = defaultForm.avatar;
   title.value = defaultForm.title;
   typeHousing.value = defaultForm.typeHousing;
   price.value = defaultForm.price;
-  price.setAttribute('placeholder', defaultForm.pricePlaceHolder);
+  price.placeholder = defaultForm.pricePlaceHolder;
   timein.value = defaultForm.timein;
   timeout.value = defaultForm.timeout;
   roomNumber.value = defaultForm.roomNumber;

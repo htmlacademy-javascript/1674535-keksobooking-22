@@ -575,9 +575,9 @@ fieldset {
   flex-wrap: wrap;
   margin-right: 0px;
   margin-bottom: 0px;
-
   min-width: 70px;
-  height: 70px;
+  max-width: 300px;
+  min-height: 70px;
 
   background-color: #e4e4de;
   border-radius: 5px;

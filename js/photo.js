@@ -1,3 +1,5 @@
+import {showAlert} from './util.js';
+
 const FILE_TYPES = ['jpeg', 'png'];
 const fileAvatarChooser = document.querySelector('.ad-form__field input[type=file]');
 const previewAvatar = document.querySelector('#avatar-photo');
@@ -7,7 +9,6 @@ const previewPhoto = document.querySelector('.ad-form__photo');
 fileAvatarChooser.addEventListener('change', () => {
   const file = fileAvatarChooser.files[0];
   const fileName = file.name.toLowerCase();
-
   const matches = FILE_TYPES.some((it) => {
     return fileName.endsWith(it);
   });
@@ -20,6 +21,9 @@ fileAvatarChooser.addEventListener('change', () => {
     });
 
     reader.readAsDataURL(file);
+  }
+  else {
+    showAlert('Выберете файл с расширением .png, .jpeg');
   }
 });
 

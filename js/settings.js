@@ -23,11 +23,11 @@ const setActiveForm = (className) => {
 const defaultForm = new Object();
 
 const saveDefaultForm = () => {
-  defaultForm.avatar =document.querySelector('#avatar-photo').getAttribute('src');
+  defaultForm.avatar =document.querySelector('#avatar-photo').src;
   defaultForm.title = document.querySelector('#title').value;
   defaultForm.typeHousing = document.querySelector('#type').value;
   defaultForm.price = document.querySelector('#price').value;
-  defaultForm.pricePlaceHolder =document.querySelector('#price').getAttribute('placeholder');
+  defaultForm.pricePlaceHolder =document.querySelector('#price').placeholder;
   defaultForm.timein = document.querySelector('#timein').value;
   defaultForm.timeout = document.querySelector('#timeout').value;
   defaultForm.roomNumber = document.querySelector('#room_number').value;
