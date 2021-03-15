@@ -23,13 +23,14 @@ fileAvatarChooser.addEventListener('change', () => {
     reader.readAsDataURL(file);
   }
   else {
-    showAlert('Выберете файл с расширением .png, .jpeg');
+    showAlert('Выберите файл с расширением .png, .jpeg');
   }
 });
 
 filePhotoChooser.addEventListener('change', () => {
   const files = Array.from(filePhotoChooser.files);
   const imgTemplate = document.querySelector('#card').content.querySelector('.popup__photo');
+
   files.forEach((file) => {
     const fileName = file.name.toLowerCase();
     const matches = FILE_TYPES.some((it) => {
