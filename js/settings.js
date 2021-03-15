@@ -1,27 +1,24 @@
-export {setDisabledPage, setActivePage, defaultForm};
+export {setDisabledPage, setActiveForm, defaultForm};
 
 const setDisabledPage = () => {
   const form = document.querySelector('.ad-form');
   const filter = document.querySelector('.map__filters');
   form.classList.add('ad-form--disabled');
   filter.classList.add('map__filters--disabled');
-  const activeFields = document.querySelectorAll('.ad-form fieldset, .map__filters select');
+  const activeFields = document.querySelectorAll('.ad-form fieldset, .map__filters select, .map__filters fieldset');
   activeFields.forEach(element => {
     element.disabled=true;
   });
-}
+};
 
-const setActivePage = () => {
-  const form = document.querySelector('.ad-form');
-  const filter = document.querySelector('.map__filters');
-  form.classList.remove('ad-form--disabled');
-  filter.classList.remove('map__filters--disabled');
-  const disabledFields = document.querySelectorAll('fieldset[disabled], select[disabled]');
+const setActiveForm = (className) => {
+  const form = document.querySelector(`.${className}`);
+  form.classList.remove(`${className}--disabled`);
+  const disabledFields = document.querySelectorAll(`.${className} fieldset[disabled], .${className} select[disabled]`);
   disabledFields.forEach(element => {
     element.disabled=false;
   });
-
-}
+};
 
 const defaultForm = new Object();
 

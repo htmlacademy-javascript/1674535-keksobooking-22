@@ -45,5 +45,4 @@ filePhotoChooser.addEventListener('change', () => {
       reader.readAsDataURL(file);
     }
   });
-
 });

@@ -571,10 +571,12 @@ fieldset {
 }
 
 .ad-form__photo {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-bottom: 0px;
 
-  width: 70px;
+  min-width: 70px;
   height: 70px;
 
   background-color: #e4e4de;

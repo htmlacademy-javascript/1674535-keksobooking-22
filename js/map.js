@@ -1,6 +1,6 @@
 /* global L:readonly */
 import {createCard} from './card.js';
-import {setActivePage} from './settings.js';
+import {setActiveForm} from './settings.js';
 import {filter} from './filter.js';
 export {createPoints, resetMap, updatePoints};
 
@@ -29,7 +29,7 @@ const address = document.querySelector('#address');
 const map = L.map('map-canvas')
   .on('load', () => {
     address.value = `${CENTER_LATITUDE}, ${CENTER_LONGITUDE}`;
-    setActivePage();
+    setActiveForm('ad-form');
   })
   .setView({
     lat: CENTER_LATITUDE,
@@ -95,6 +95,11 @@ const createPoints = (points) => {
 
 const resetMap = () =>{
   mainMarker.setLatLng([CENTER_LATITUDE,CENTER_LONGITUDE]).update();
+  address.value = `${CENTER_LATITUDE}, ${CENTER_LONGITUDE}`;
+  map.setView({
+    lat: CENTER_LATITUDE,
+    lng: CENTER_LONGITUDE,
+  }, SCALE);
 }
 
 const resetMarkers = () => {
