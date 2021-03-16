@@ -1,6 +1,6 @@
 import {showAlert} from './util.js';
 
-const FILE_TYPES = ['jpeg', 'png'];
+const FILE_TYPES = ['png', 'jpeg'];
 const fileAvatarChooser = document.querySelector('.ad-form__field input[type=file]');
 const previewAvatar = document.querySelector('#avatar-photo');
 const filePhotoChooser = document.querySelector('#images');

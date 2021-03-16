@@ -66,4 +66,3 @@ const showErrorMessage = () => {
   window.addEventListener('click', onErrorMessageWindowClick);
   errorButton.addEventListener('click', onErrorButtonClick);
 };
-

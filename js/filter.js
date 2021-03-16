@@ -23,12 +23,7 @@ const housingType = document.querySelector('#housing-type');
 const housingPrice = document.querySelector('#housing-price');
 const housingRooms = document.querySelector('#housing-rooms');
 const housingGuests = document.querySelector('#housing-guests');
-const wifi = document.querySelector('#filter-wifi');
-const dishwasher = document.querySelector('#filter-dishwasher');
-const parking = document.querySelector('#filter-parking');
-const washer = document.querySelector('#filter-washer');
-const elevator = document.querySelector('#filter-elevator');
-const conditioner = document.querySelector('#filter-conditioner');
+const mapFeatures = document.querySelectorAll('.map__features');
 
 const filter = (points) => {
   let filteredPoints = points.slice();
@@ -74,10 +69,5 @@ const setFilter = (cb) => {
   housingPrice.addEventListener('change', () => cb());
   housingRooms.addEventListener('change', () => cb());
   housingGuests.addEventListener('change', () => cb());
-  wifi.addEventListener('change', () => cb());
-  dishwasher.addEventListener('change', () => cb());
-  parking.addEventListener('change', () => cb());
-  washer.addEventListener('change', () => cb());
-  elevator.addEventListener('change', () => cb());
-  conditioner.addEventListener('change', () => cb());
+  mapFeatures.addEventListener('change', () => cb());
 };

@@ -4,7 +4,6 @@ import {setActiveForm} from './settings.js';
 import {filter} from './filter.js';
 export {createPoints, resetMap, updatePoints};
 
-
 const CENTER_LATITUDE = 35.68170;
 const CENTER_LONGITUDE = 139.75388;
 const SCALE = 13;
@@ -111,8 +110,3 @@ const updatePoints = (points) => {
   const filteredPoints = filter(points);
   createPoints(filteredPoints);
 };
-
-
-
-
-

@@ -26,6 +26,8 @@ const timeout = document.querySelector('#timeout');
 const roomNumber = document.querySelector('#room_number');
 const capacity = document.querySelector('#capacity');
 const description = document.querySelector('#description');
+const features = document.querySelectorAll('.feature__checkbox');
+const photo = document.querySelector('.ad-form__photo');
 const adFormResetBtn = document.querySelector('.ad-form__reset');
 
 typeHousing.addEventListener('change', () => {
@@ -43,14 +45,9 @@ price.addEventListener('input', () => {
 });
 
 const checkPrice = (price, minPrice) => {
-  if (price.value < minPrice){
-    price.setCustomValidity(`Мин. значение для данного типа жилья равно: ${minPrice}`);
-  }
-  else{
-    price.setCustomValidity('');
-  }
+  (price.value < minPrice) ? price.setCustomValidity(`Мин. значение для данного типа жилья равно: ${minPrice}`) : price.setCustomValidity('');
   price.reportValidity();
-}
+};
 
 timein.addEventListener('change', () => {
   timeout.selectedIndex=timein.selectedIndex;
@@ -119,7 +116,6 @@ const setUserFormSubmit = (onSuccess, onError) => {
 };
 
 const resetForm = () => {
-  const photo = document.querySelector('.ad-form__photo');
   avatar.src = defaultForm.avatar;
   title.value = defaultForm.title;
   typeHousing.value = defaultForm.typeHousing;
@@ -130,7 +126,6 @@ const resetForm = () => {
   roomNumber.value = defaultForm.roomNumber;
   capacity.value = defaultForm.capacity;
   description.value = defaultForm.description;
-  const features = document.querySelectorAll('.feature__checkbox');
   features.forEach(e => {
     if (e.checked){
       e.checked = false;
