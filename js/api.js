@@ -5,11 +5,9 @@ const getData = (onSuccess) => {
   fetch('https://22.javascript.pages.academy/keksobooking/data')
     .then((response) => response.json())
     .then((points) => {
-      console.log('нет ошибки');
       onSuccess(points);
     })
     .catch(() => {
-      console.log('ошибка');
       showAlert('При загрузке данных произошла ошибка');
     });
 };
