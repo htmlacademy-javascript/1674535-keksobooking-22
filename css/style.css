@@ -571,11 +571,13 @@ fieldset {
 }
 
 .ad-form__photo {
-  margin-right: 10px;
-  margin-bottom: 10px;
-
-  width: 70px;
-  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  min-width: 70px;
+  max-width: 300px;
+  min-height: 70px;
 
   background-color: #e4e4de;
   border-radius: 5px;
@@ -1034,4 +1036,16 @@ option:disabled {
 
 .map__canvas{
   z-index: 0;
+}
+
+.error_message{
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 10px 3px;
+  font-size: 30px;
+  text-align: center;
+  background-color: red;
 }
